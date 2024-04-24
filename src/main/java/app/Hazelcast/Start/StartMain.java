@@ -10,6 +10,8 @@ public class StartMain {
     public static void main(String[] args) {
         Config helloWorldConfig = new Config();
         helloWorldConfig.setClusterName("hello-world");
+        helloWorldConfig.getNetworkConfig().setPort(5705);
+        helloWorldConfig.getNetworkConfig().getRestApiConfig().setEnabled(true);
         HazelcastInstance hz1 = Hazelcast.newHazelcastInstance(helloWorldConfig);
         HazelcastInstance hz2 = Hazelcast.newHazelcastInstance(helloWorldConfig);
         HazelcastInstance hz3 = Hazelcast.newHazelcastInstance(helloWorldConfig);
@@ -22,5 +24,6 @@ public class StartMain {
         System.out.println(map1.get("1"));
         System.out.println(map1.get("2"));
         System.out.println(map1.get("3"));
+        while (true){}
     }
 }

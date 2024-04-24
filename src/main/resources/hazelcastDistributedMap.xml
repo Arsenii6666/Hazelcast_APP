@@ -1,0 +1,19 @@
+<hazelcast-client xmlns="http://www.hazelcast.com/schema/client-config"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://www.hazelcast.com/schema/client-config
+                  http://www.hazelcast.com/schema/client-config/hazelcast-client-config-5.0.xsd">
+    <cluster-name>Distributed-map</cluster-name>
+
+
+    <!-- Network configuration for connecting to cluster members -->
+    <network>
+        <!-- Define the Hazelcast cluster members obtained from logs -->
+        <cluster-members>
+            <address>192.168.56.1:5701</address>
+            <address>192.168.56.1:5702</address>
+            <address>192.168.56.1:5703</address>
+            <!-- Add more addresses if needed -->
+        </cluster-members>
+    </network>
+</hazelcast-client>
+

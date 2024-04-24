@@ -1,15 +1,13 @@
 package app.Hazelcast.DistributedMap;
 
 import com.hazelcast.config.Config;
-import com.hazelcast.config.ManagementCenterConfig;
 import com.hazelcast.core.Hazelcast;
 import com.hazelcast.core.HazelcastInstance;
 import com.hazelcast.map.IMap;
 
-import java.util.Map;
 import java.util.Scanner;
 
-public class DistributedMapMain {
+public class DistributedMapNoData {
     public static void main(String[] args) {
         Config helloWorldConfig = new Config();
         helloWorldConfig.setClusterName("Distributed-map");
@@ -17,7 +15,7 @@ public class DistributedMapMain {
         helloWorldConfig.getNetworkConfig().getRestApiConfig().setEnabled(true);
         HazelcastInstance hz = Hazelcast.newHazelcastInstance(helloWorldConfig);
         IMap<Integer, String> map = hz.getMap("distributed-map");
-        for (int i=0; i<1000; i++){
+        for (int i=0; i<0; i++){
             map.put(i, Integer.toString(i));
         }
         Scanner scanner = new Scanner(System.in);
@@ -27,7 +25,6 @@ public class DistributedMapMain {
             if (userInput==0){
                 map.destroy();
                 break;
-
             }
             System.out.println("Key: " + userInput + ", Value: " + map.get(userInput));
         }
